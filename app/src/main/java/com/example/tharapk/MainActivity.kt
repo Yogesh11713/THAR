@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        dp.startAnimation(AnimationUtils.loadAnimation(this,R.anim.zoom_in))
+       // dp.startAnimation(AnimationUtils.loadAnimation(this,R.anim.zoom_in))
 //        starts the zoom in animation
         Handler().postDelayed({
-            dp.visibility= View.GONE
+          //  dp.visibility= View.GONE
             if(isOnline()){
                 startActivity(Intent(this,SignExp::class.java))}
 //            checks the status of connection
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this,NoConnection::class.java))
             }
             finish()
-        },3500
+        },4000
         )}
 
 
