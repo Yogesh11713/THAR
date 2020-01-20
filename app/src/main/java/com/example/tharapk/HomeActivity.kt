@@ -22,44 +22,16 @@ open class HomeActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val isFirstRun = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).getBoolean("isFirstRun", true)
-
-        if (isFirstRun) {
-            //show sign up activity
-            startActivity(Intent(this@HomeActivity, SignExp::class.java))
-
-        }
-
-
-        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
-            .putBoolean("isFirstRun", false).commit()
-
-        fun onStart() {
-            super.onStart()
-            val user = FirebaseAuth.getInstance().currentUser
-            if (user != null) {
-                startActivity(HomeActivity.getLaunchIntent(this))
-                finish()
-            }
-        }
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
-
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -76,6 +48,17 @@ open class HomeActivity : AppCompatActivity() {
         getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.hamu)
     }
 
+    override fun onStart() {
+        super.onStart()
+        //  CHECK FOR USER AUTHENTICATION
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) {
+            // USER NOT SIGNED-IN : REDIRECTING USER TO SIGNEXP ACTIVITY
+            startActivity(Intent(this,SignExp::class.java))
+            finish()
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.home, menu)
@@ -87,9 +70,4 @@ open class HomeActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    companion object {
-        fun getLaunchIntent(from: Context) = Intent(from, SignExp::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        }
-    }
 }

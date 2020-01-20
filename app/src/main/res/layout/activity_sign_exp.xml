@@ -28,4 +28,21 @@
         android:text="@string/techknights_msg"
         />
 
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/logInLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+    </RelativeLayout>
+
 </RelativeLayout>
