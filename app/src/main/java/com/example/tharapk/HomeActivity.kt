@@ -15,7 +15,10 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.widget.ImageView
+import com.example.tharapk.models.Event
 import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
 open class HomeActivity : AppCompatActivity() {
 
@@ -43,9 +46,9 @@ open class HomeActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        getSupportActionBar()?.setHomeButtonEnabled(true)
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
-        getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.hamu)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
     }
 
     override fun onStart() {
@@ -68,6 +71,12 @@ open class HomeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+
+    fun onMovieClick(movie: Event, movieImageView: ImageView){
+
+
     }
 
 }

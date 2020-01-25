@@ -13,10 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.enquiry.EnquiryActivity"></activity>
+        <activity android:name=".ui.explore.ExploreActivity" />
+        <activity android:name=".ui.map.MapActivity" />
+        <activity android:name=".ui.sponsors.SponsorsActivity" />
+        <activity android:name=".ui.team.TeamActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.notification.NotificationActivity" />
+        <activity android:name=".ui.feed.FeedActivity" />
+        <activity android:name=".ui.event.EventActivity" />
+        <activity android:name=".ui.home.Home2Activity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignExp" />
         <activity android:name=".NoConnection" />
         <activity
@@ -28,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.event.EventDetailActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,18 +1,13 @@
 package com.example.tharapk
 
-import android.content.Context.CONNECTIVITY_SERVICE
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.net.ConnectivityManager
-import android.net.Credentials
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.view.animation.AnimationUtils
-import androidx.core.content.ContextCompat.getSystemService
+import com.example.tharapk.ui.home.Home2Activity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 if (user != null) {
 
                     // USER ALREADY SIGNED-IN : REDIRECTING USER TO HOME ACTIVITY
-                    startActivity(Intent(this,HomeActivity::class.java).setFlags(FLAG_ACTIVITY_CLEAR_TASK))
+                    startActivity(Intent(this, Home2Activity::class.java).setFlags(FLAG_ACTIVITY_CLEAR_TASK))
                     finish()
 
                 }else{
