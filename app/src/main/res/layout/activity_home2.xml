@@ -36,12 +36,14 @@
                     android:orientation="vertical">
 
                     <RelativeLayout
+                        android:id="@+id/ll_enquiry"
                         android:clickable="true"
                         android:foreground="@drawable/button_ripple_effect"
                         android:layout_width="match_parent"
                         android:layout_height="280dp">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="280dp"
                             android:alpha="0.85"
@@ -71,6 +73,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ll_team"
                         android:clickable="true"
                         android:foreground="@drawable/button_ripple_effect"
                         android:layout_marginTop="10dp"
@@ -78,6 +81,7 @@
                         android:layout_height="120dp">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="280dp"
                             android:alpha="0.85"
@@ -116,6 +120,7 @@
                     android:orientation="vertical">
 
                     <RelativeLayout
+                        android:id="@+id/ll_sponsors"
                         android:clickable="true"
                         android:foreground="@drawable/button_ripple_effect"
                         android:layout_marginBottom="10dp"
@@ -123,6 +128,7 @@
                         android:layout_height="120dp">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="280dp"
                             android:alpha="0.85"
@@ -152,12 +158,14 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ll_explore"
                         android:clickable="true"
                         android:foreground="@drawable/button_ripple_effect"
                         android:layout_width="match_parent"
                         android:layout_height="280dp">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="280dp"
                             android:alpha="0.85"
@@ -200,12 +208,14 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/ll_collegeMap"
                     android:clickable="true"
                     android:foreground="@drawable/button_ripple_effect"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:alpha="0.85"

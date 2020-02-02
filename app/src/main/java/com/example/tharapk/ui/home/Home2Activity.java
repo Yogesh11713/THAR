@@ -7,13 +7,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.tharapk.R;
 import com.example.tharapk.SignExp;
+import com.example.tharapk.ui.enquiry.EnquiryActivity;
 import com.example.tharapk.ui.event.EventActivity;
+import com.example.tharapk.ui.explore.ExploreActivity;
 import com.example.tharapk.ui.feed.FeedActivity;
+import com.example.tharapk.ui.map.MapActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
 import com.example.tharapk.ui.profile.ProfileActivity;
+import com.example.tharapk.ui.sponsors.SponsorsActivity;
+import com.example.tharapk.ui.team.TeamActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -31,6 +38,60 @@ public class Home2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_home2);
 
         setActivityNavigation();
+        setupDashboard();
+
+    }
+
+    // SETUP INTENT FOR ALL THE ACTIVITIES
+    void setupDashboard(){
+        RelativeLayout enquiry, sponsors, team, explore, collegeMap;
+
+        enquiry = findViewById(R.id.ll_enquiry);
+        sponsors = findViewById(R.id.ll_sponsors);
+        team = findViewById(R.id.ll_team);
+        explore = findViewById(R.id.ll_explore);
+        collegeMap = findViewById(R.id.ll_collegeMap);
+
+        enquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, EnquiryActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        sponsors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, SponsorsActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        team.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, TeamActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        explore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, ExploreActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        collegeMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, MapActivity.class);
+                startActivity(i1);
+            }
+        });
+
 
     }
 
