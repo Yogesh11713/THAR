@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
-import com.example.tharapk.ui.home.Home2Activity
+import com.example.tharapk.ui.home.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -102,7 +102,7 @@ class SignExp : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
 
-                val intent= Intent(this@SignExp, Home2Activity::class.java)
+                val intent= Intent(this@SignExp, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
                 // MAKE LOADING GONE

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.tharapk.R;
@@ -27,15 +26,15 @@ import com.google.firebase.auth.FirebaseUser;
 import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
-public class Home2Activity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
-    private  Context mContext  = Home2Activity.this;
+    private  Context mContext  = HomeActivity.this;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
 
         setActivityNavigation();
         setupDashboard();
@@ -168,7 +167,6 @@ public class Home2Activity extends AppCompatActivity {
 
 
     }
-
 
     @Override
     protected void onStart() {

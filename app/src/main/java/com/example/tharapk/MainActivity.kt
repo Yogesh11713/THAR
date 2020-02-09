@@ -6,7 +6,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.tharapk.ui.home.Home2Activity
+import com.example.tharapk.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 if (user != null) {
 
                     // USER ALREADY SIGNED-IN : REDIRECTING USER TO HOME ACTIVITY
-                    startActivity(Intent(this, Home2Activity::class.java).setFlags(FLAG_ACTIVITY_CLEAR_TASK))
+                    startActivity(Intent(this, HomeActivity::class.java).setFlags(FLAG_ACTIVITY_CLEAR_TASK))
                     finish()
 
                 }else{

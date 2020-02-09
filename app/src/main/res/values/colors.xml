@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#0D0302</color>
-    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorPrimaryDark">#00FFFFFF</color>
     <color name="colorAccent">#FFFFFF</color>
 
     <color name="themeColor">#0B011F</color>
 
-    <color name="colorPrimary2">#151c25</color>
-    <color name="colorPrimaryDark2">#151c25</color>
-    <color name="colorAccent2">#f1b814</color>
-    <color name="text_light_blue">#566f9a</color>
+    <color name="homeTheme">#3B210B</color>
+    <color name="teamTheme">#2B374A</color>
+    <color name="profileTheme">#160A2A</color>
+    <color name="signinTheme">#ffffff</color>
+    <color name="enquiryTheme">#011746</color>
 
-    <color name="newTheme">#0D0302</color>
 
 </resources>

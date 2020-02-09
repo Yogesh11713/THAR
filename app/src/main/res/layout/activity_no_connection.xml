@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/no_connection_pic"
+    android:background="@drawable/signin_background"
     tools:context=".NoConnection">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

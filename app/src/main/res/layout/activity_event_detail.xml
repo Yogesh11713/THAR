@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.event.EventDetailActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/event_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
 
         <TextView
             android:lineSpacingExtra="8dp"
-            android:textColor="@color/text_light_blue"
+            android:textColor="@android:color/white"
             android:id="@+id/detail_event_desc"
             android:fontFamily="@font/montserrat"
             android:layout_width="0dp"

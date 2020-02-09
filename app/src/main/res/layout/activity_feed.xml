@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/feed_background"
     tools:context=".ui.feed.FeedActivity">
 
     <include layout="@layout/top_toolbar" />
@@ -12,9 +12,9 @@
     <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         app:backgroundColor="#0D0302"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom" />
+        app:menu="@menu/bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

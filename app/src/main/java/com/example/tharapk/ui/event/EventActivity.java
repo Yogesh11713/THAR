@@ -1,37 +1,49 @@
 package com.example.tharapk.ui.event;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.lang.UCharacter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.tharapk.adapters.EventCategoryAdapter;
 import com.example.tharapk.models.EventCategory;
-import com.example.tharapk.ui.home.Home2Activity;
+import com.example.tharapk.ui.home.HomeActivity;
 import com.example.tharapk.R;
 import com.example.tharapk.ui.feed.FeedActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
 import com.example.tharapk.ui.profile.ProfileActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
 public class EventActivity extends AppCompatActivity {
 
+    private static final String TAG = "EventActivity";
+
     private Context mContext = EventActivity.this;
 
     private List<EventCategory> mCategoryList;
 
     private RecyclerView mEventCategories;
+
+    private FirebaseFirestore mDatabase;
+    private DocumentReference mReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +52,31 @@ public class EventActivity extends AppCompatActivity {
 
         setActivityNavigation();
 
-        setEventCategoryList();
+        mDatabase = FirebaseFirestore.getInstance();
+        mReference = mDatabase.collection("Events").document("Categories");
+        mReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                Log.d(TAG, "onComplete: TASK Successful" + task.getResult());
+                setEventCategoryList();
+
+                if(task.isSuccessful()){
+
+                    Map categories = task.getResult().getData();
+
+
+                    for (Object d : categories.keySet()){
+
+                        mCategoryList.add(new EventCategory(d.toString(),R.drawable.background));
+
+                    }
+
+                    Log.d(TAG, "onComplete: EVENT CATEGORIES" + mCategoryList);
+
+                }
+            }
+        });
 
     }
 
@@ -50,26 +86,26 @@ public class EventActivity extends AppCompatActivity {
 
        mCategoryList = new ArrayList<>();
 
-       //   ADDING CATEGORIES TO THE RECYCLER VIEW LIST
-       mCategoryList.add(
-               new EventCategory(
-                       "Robotics",
-                       R.drawable.background
-               )
-       );
-
-       mCategoryList.add(
-               new EventCategory(
-                       "Robotics",
-                       R.drawable.background
-               )
-       );
-       mCategoryList.add(
-               new EventCategory(
-                       "Robotics",
-                       R.drawable.background
-               )
-       );
+//       //   ADDING CATEGORIES TO THE RECYCLER VIEW LIST
+//       mCategoryList.add(
+//               new EventCategory(
+//                       "Robotics",
+//                       R.drawable.background
+//               )
+//       );
+//
+//       mCategoryList.add(
+//               new EventCategory(
+//                       "Robotics",
+//                       R.drawable.background
+//               )
+//       );
+//       mCategoryList.add(
+//               new EventCategory(
+//                       "Robotics",
+//                       R.drawable.background
+//               )
+//       );
 
        //   SETTING ADAPTER FOR THE RECYCLER VIEW
        EventCategoryAdapter adapter = new EventCategoryAdapter(mContext,mCategoryList);
@@ -100,7 +136,7 @@ public class EventActivity extends AppCompatActivity {
                 switch(i){
 
                     case 0 :
-                        Intent i1 = new Intent(mContext, Home2Activity.class);
+                        Intent i1 = new Intent(mContext, HomeActivity.class);
                         i1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

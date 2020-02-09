@@ -37,6 +37,8 @@
 
     <string name="help">Help</string>
 
+    <string name="notification">Notifications</string>
+
 
     <!--    Content Description-->
     <string name="cd_notifications">Live notifications</string>

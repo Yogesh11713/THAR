@@ -4,8 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@drawable/signin_background"
     tools:context=".SignExp">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/only_header"/>
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tagline"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="10dp"
+        android:text="@string/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp" />
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tagline"
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/thar_logo"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_button"
@@ -17,10 +41,11 @@
         android:layout_marginEnd="20dp"
         android:padding="8dp" />
 
+
     <TextView
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"

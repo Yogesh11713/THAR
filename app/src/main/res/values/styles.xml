@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -14,12 +13,5 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
-
-<!--    THE BELOW CODE IS TO CHANGE KABAB ICON INTO NOTIFICATION BELL ICON-->
-
-    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_notifications</item>
-    </style>
 
 </resources>

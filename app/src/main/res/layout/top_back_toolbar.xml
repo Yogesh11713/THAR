@@ -1,0 +1,32 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@android:color/transparent">
+
+        <ImageView
+            android:id="@+id/iv_notification"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:clickable="true"
+            android:contentDescription="@string/cd_notifications"
+            android:foreground="@drawable/button_ripple_effect"
+            android:src="@drawable/ic_back_white" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/thar_white_header" />
+
+    </LinearLayout>
+
+
+</merge>

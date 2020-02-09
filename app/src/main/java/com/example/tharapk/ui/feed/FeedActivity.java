@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.tharapk.ui.home.Home2Activity;
+import com.example.tharapk.ui.home.HomeActivity;
 import com.example.tharapk.R;
 import com.example.tharapk.ui.event.EventActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
@@ -52,7 +52,7 @@ public class FeedActivity extends AppCompatActivity {
                         finish();
                         break;
                     case 0 :
-                        Intent i2 = new Intent(mContext, Home2Activity.class);
+                        Intent i2 = new Intent(mContext, HomeActivity.class);
                         i2.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         i2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
