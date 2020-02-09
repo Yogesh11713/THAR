@@ -1,6 +1,8 @@
 package com.example.tharapk.ui.sponsors;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,13 +37,20 @@ public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoad
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
 
+        //SET BACK BUTTON
+        ImageView btBack = findViewById(R.id.iv_back);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         sponsors = FirebaseDatabase.getInstance().getReference("Sponsors");
 
         iFirebaseLoadDone = this;
 
         loadSponsor();
-
-
 
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         viewPager.setPageTransformer(true,new DepthPageTransformer());

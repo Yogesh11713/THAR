@@ -25,14 +25,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="70dp"
-
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="400dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -116,7 +117,9 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="400dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -161,16 +164,17 @@
                     <RelativeLayout
                         android:id="@+id/ll_explore"
                         android:clickable="true"
+                        android:layout_marginBottom="10dp"
                         android:foreground="@drawable/button_ripple_effect"
                         android:layout_width="match_parent"
-                        android:layout_height="280dp">
+                        android:layout_height="140dp">
 
                         <LinearLayout
 
                             android:layout_width="match_parent"
                             android:layout_height="280dp"
                             android:alpha="0.85"
-                            android:background="#D23838">
+                            android:background="#3092AA">
 
                         </LinearLayout>
 
@@ -195,6 +199,41 @@
 
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:id="@+id/ll_adminblock"
+                        android:clickable="true"
+                        android:foreground="@drawable/button_ripple_effect"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="280dp"
+                            android:alpha="0.85"
+                            android:background="#D23838">
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_centerHorizontal="true"
+                            android:layout_above="@+id/adminBlockText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_admin_block" />
+
+                        <TextView
+                            android:id="@+id/adminBlockText"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textColor="@android:color/white"
+                            android:text="@string/adminPanel"/>
+
+
+                    </RelativeLayout>
                 </LinearLayout>
 
 

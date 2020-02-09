@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/team_background"
     android:orientation="vertical"
     tools:context=".ui.sponsors.SponsorsActivity">
 
+
+    <include layout="@layout/top_back_toolbar" />
+
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sponsors"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sponsers"
         android:textColor="@android:color/white"
-        android:textSize="35sp"/>
+        android:textSize="28sp" />
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-
-        android:id="@+id/view_pager"
-        >
+        android:layout_below="@+id/heading"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/view_pager">
 
     </androidx.viewpager.widget.ViewPager>
 
 
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginBottom="3dp"
+        android:textColor="@android:color/white"
+        android:text="@string/techknights_msg"
+        />
 
-</LinearLayout>
+
+</RelativeLayout>

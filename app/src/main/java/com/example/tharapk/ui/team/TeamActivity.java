@@ -1,6 +1,8 @@
 package com.example.tharapk.ui.team;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +27,7 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
     ViewPager viewPager;
     TeamAdapter adapter;
 
-    DatabaseReference sponsors;
+    DatabaseReference teams;
 
     TeamFireBaseLoadDone iFirebaseLoadDone;
 
@@ -34,13 +36,20 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
 
-        sponsors = FirebaseDatabase.getInstance().getReference("Teams/Teams");
+        //SET BACK BUTTON
+        ImageView btBack = findViewById(R.id.iv_back);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        teams = FirebaseDatabase.getInstance().getReference("Teams/Teams");
 
         iFirebaseLoadDone = this;
 
         loadSponsor();
-
-
 
         viewPager = (ViewPager)findViewById(R.id.view_pager_team);
         viewPager.setPageTransformer(true,new DepthPageTransformer());
@@ -48,14 +57,15 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
 
 
     private void loadSponsor() {
-        sponsors.addListenerForSingleValueEvent(new ValueEventListener() {
 
-            List<TeamModel> sponsorList = new ArrayList<>();
+        teams.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            List<TeamModel> teamList = new ArrayList<>();
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot sponsorSnapShot:dataSnapshot.getChildren())
-                    sponsorList.add(sponsorSnapShot.getValue(TeamModel.class));
-                iFirebaseLoadDone.onFirebaseLoadSuccess(sponsorList);
+                    teamList.add(sponsorSnapShot.getValue(TeamModel.class));
+                iFirebaseLoadDone.onFirebaseLoadSuccess(teamList);
             }
 
             @Override
@@ -66,8 +76,8 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
     }
 
     @Override
-    public void onFirebaseLoadSuccess(List<TeamModel> sponsorList) {
-        adapter = new TeamAdapter(this, sponsorList);
+    public void onFirebaseLoadSuccess(List<TeamModel> teamList) {
+        adapter = new TeamAdapter(this, teamList);
         viewPager.setAdapter(adapter);
     }
 

@@ -13,7 +13,7 @@ import com.example.tharapk.R;
 import com.example.tharapk.SignExp;
 import com.example.tharapk.ui.enquiry.EnquiryActivity;
 import com.example.tharapk.ui.event.EventActivity;
-import com.example.tharapk.ui.explore.ExploreActivity;
+import com.example.tharapk.ui.admin.AdminSignInActivity;
 import com.example.tharapk.ui.feed.FeedActivity;
 import com.example.tharapk.ui.map.MapActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
@@ -43,13 +43,14 @@ public class HomeActivity extends AppCompatActivity {
 
     // SETUP INTENT FOR ALL THE ACTIVITIES
     void setupDashboard(){
-        RelativeLayout enquiry, sponsors, team, explore, collegeMap;
+        RelativeLayout enquiry, sponsors, team, explore, collegeMap,adminBlock;
 
         enquiry = findViewById(R.id.ll_enquiry);
         sponsors = findViewById(R.id.ll_sponsors);
         team = findViewById(R.id.ll_team);
         explore = findViewById(R.id.ll_explore);
         collegeMap = findViewById(R.id.ll_collegeMap);
+        adminBlock = findViewById(R.id.ll_adminblock);
 
         enquiry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,15 +76,23 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        explore.setOnClickListener(new View.OnClickListener() {
+        adminBlock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(mContext, ExploreActivity.class);
+                Intent i1 = new Intent(mContext, AdminSignInActivity.class);
                 startActivity(i1);
             }
         });
 
         collegeMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(mContext, MapActivity.class);
+                startActivity(i1);
+            }
+        });
+
+        explore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i1 = new Intent(mContext, MapActivity.class);

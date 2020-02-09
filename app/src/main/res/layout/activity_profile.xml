@@ -10,7 +10,6 @@
     <include layout="@layout/top_back_toolbar" />
 
 
-
     <TextView
         android:layout_alignParentBottom="true"
         android:gravity="center"
