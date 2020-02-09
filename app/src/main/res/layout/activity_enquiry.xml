@@ -9,6 +9,7 @@
     <include layout="@layout/top_back_toolbar" />
 
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
@@ -20,13 +21,21 @@
         android:textColor="@android:color/white"
         android:textSize="28sp" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/heading"
+        android:id="@+id/Rv_enquiry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
     <TextView
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="3dp"
         android:textColor="@android:color/white"
         android:text="@string/techknights_msg"
         />

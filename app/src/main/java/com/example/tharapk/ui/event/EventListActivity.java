@@ -26,4 +26,5 @@ public class EventListActivity extends AppCompatActivity {
         Toast.makeText(mContext, "Item clicked" + mCategoryName, Toast.LENGTH_SHORT).show();
 
     }
+
 }
