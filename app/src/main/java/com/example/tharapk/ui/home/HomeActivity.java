@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import com.example.tharapk.R;
 import com.example.tharapk.SignExp;
 import com.example.tharapk.ui.enquiry.EnquiryActivity;
-import com.example.tharapk.ui.event.EventActivity;
+import com.example.tharapk.ui.event.EventCategoryActivity;
 import com.example.tharapk.ui.admin.AdminSignInActivity;
 import com.example.tharapk.ui.feed.FeedActivity;
 import com.example.tharapk.ui.map.MapActivity;
@@ -152,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch(i){
 
                     case 1 :
-                        Intent i1 = new Intent(mContext, EventActivity.class);
+                        Intent i1 = new Intent(mContext, EventCategoryActivity.class);
                         i1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

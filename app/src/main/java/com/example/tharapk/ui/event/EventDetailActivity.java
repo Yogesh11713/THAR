@@ -29,7 +29,7 @@ public class EventDetailActivity extends AppCompatActivity {
     }
 
     void iniViews() {
-        play_fab = findViewById(R.id.play_fab);
+
 
         String movieTitle = getIntent().getExtras().getString("title");
         int imageResourceId = getIntent().getExtras().getInt("imgURL");
@@ -39,7 +39,7 @@ public class EventDetailActivity extends AppCompatActivity {
         Glide.with(this).load(imageResourceId).into(MovieThumbnailImg);
         MovieThumbnailImg.setImageResource(imageResourceId);
 
-        MovieCoverImg = findViewById(R.id.detail_event_cover);
+
         Glide.with(this).load(imagecover).into(MovieCoverImg);
 
         tv_title = findViewById(R.id.detail_event_title);
@@ -48,8 +48,8 @@ public class EventDetailActivity extends AppCompatActivity {
 
         tv_description = findViewById(R.id.detail_event_desc);
         // setup animation
-        MovieCoverImg.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_animation));
-        play_fab.setAnimation(AnimationUtils.loadAnimation(this,R.anim.scale_animation));
+
+
 
 
     }

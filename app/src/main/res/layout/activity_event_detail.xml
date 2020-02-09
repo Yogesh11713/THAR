@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,91 +7,94 @@
     tools:context=".ui.event.EventDetailActivity"
     android:background="@drawable/event_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include layout="@layout/top_back_toolbar" />
+
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/detail_event_cover"
-            android:layout_width="wrap_content"
-            android:layout_height="245dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/gradient_bg"
-            app:layout_constraintBottom_toBottomOf="@+id/detail_event_cover"
-            app:layout_constraintEnd_toEndOf="@+id/detail_event_cover"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/detail_event_cover" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/play_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@drawable/ic_menu"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-        <ImageView
-            android:elevation="5dp"
-            android:id="@+id/detail_event_img"
-            android:layout_width="125dp"
-            android:layout_height="175dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:scaleType="centerCrop"
-            android:transitionName="sharedName"
-            app:layout_constraintBottom_toBottomOf="@+id/detail_event_cover"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_event_cover"
-            app:srcCompat="@drawable/login_background" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="5dp"
             android:id="@+id/detail_event_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="TextView"
-            android:textColor="@color/themeColor"
             android:fontFamily="@font/montserrat_bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/detail_event_img"
-            app:layout_constraintTop_toBottomOf="@+id/detail_event_cover" />
-
-        <TextView
-            android:lineSpacingExtra="8dp"
+            android:text="TextView"
+            android:textSize="28sp"
             android:textColor="@android:color/white"
-            android:id="@+id/detail_event_desc"
-            android:fontFamily="@font/montserrat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Hi, this is copied"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_event_img" />
+            />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/detail_event_desc"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Hi, this is copied" />
 
 
-</androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/detail_event_img"
+                    android:layout_width="125dp"
+                    android:layout_height="175dp"
+                    android:elevation="5dp"
+                    android:scaleType="centerCrop"
+                    android:transitionName="sharedName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/login_background"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

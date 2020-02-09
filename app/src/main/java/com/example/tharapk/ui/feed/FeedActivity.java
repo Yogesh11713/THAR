@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.tharapk.ui.event.EventCategoryActivity;
 import com.example.tharapk.ui.home.HomeActivity;
 import com.example.tharapk.R;
-import com.example.tharapk.ui.event.EventActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
 import com.example.tharapk.ui.profile.ProfileActivity;
 
@@ -43,7 +43,7 @@ public class FeedActivity extends AppCompatActivity {
                 switch(i){
 
                     case 1 :
-                        Intent i1 = new Intent(mContext, EventActivity.class);
+                        Intent i1 = new Intent(mContext, EventCategoryActivity.class);
                         i1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

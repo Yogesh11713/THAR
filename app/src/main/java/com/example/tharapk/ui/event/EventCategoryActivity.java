@@ -32,11 +32,11 @@ import java.util.Map;
 import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
-public class EventActivity extends AppCompatActivity {
+public class EventCategoryActivity extends AppCompatActivity implements EventCategoryAdapter.OnCategoryListener {
 
-    private static final String TAG = "EventActivity";
+    private static final String TAG = "EventCategoryActivity";
 
-    private Context mContext = EventActivity.this;
+    private Context mContext = EventCategoryActivity.this;
 
     private List<EventCategory> mCategoryList;
 
@@ -48,7 +48,7 @@ public class EventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event);
+        setContentView(R.layout.activity_event_category);
 
         setActivityNavigation();
 
@@ -108,7 +108,7 @@ public class EventActivity extends AppCompatActivity {
 //       );
 
        //   SETTING ADAPTER FOR THE RECYCLER VIEW
-       EventCategoryAdapter adapter = new EventCategoryAdapter(mContext,mCategoryList);
+       EventCategoryAdapter adapter = new EventCategoryAdapter(mContext,mCategoryList,this);
        mEventCategories.setAdapter(adapter);
 
        //   SETTING ORIENTATION FOR THE RECYCLER VIEW
@@ -196,4 +196,14 @@ public class EventActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onCategoryClick(int position) {
+
+        Intent i = new Intent(mContext, EventListActivity.class);
+
+        EventCategory eventCategory = mCategoryList.get(position);
+        i.putExtra("category_name",eventCategory.getCategoryName());
+        startActivity(i);
+
+    }
 }
