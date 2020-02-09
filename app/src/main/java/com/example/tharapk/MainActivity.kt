@@ -1,7 +1,9 @@
 package com.example.tharapk
 
+import android.app.Activity
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.makeRestartActivityTask
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,15 +34,18 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     // USER NOT SIGNED-IN : REDIRECTING USER TO SIGNEXP ACTIVITY
                     startActivity(Intent(this,SignExp::class.java))
+                    finish()
                 }
 
             }else{
                 // NO INTERNET CONNECTION
                 startActivity(Intent(this,NoConnection::class.java))
+
             }
 
-            finish()
-        },4000
+        finish()
+
+        },3000
         )}
 
 
