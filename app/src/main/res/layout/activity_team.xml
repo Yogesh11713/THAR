@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.team.TeamActivity"
-    android:background="@drawable/team_background">
-
-    <include layout="@layout/top_back_toolbar" />
-
-    <TextView
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"
-        android:text="@string/techknights_msg"
-        />
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+    android:orientation="vertical"
+        tools:context=".MainActivity">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:id="@+id/view_pager_team"
+            >
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+
+    </LinearLayout>

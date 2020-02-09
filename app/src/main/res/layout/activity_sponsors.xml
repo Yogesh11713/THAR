@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.sponsors.SponsorsActivity"
-    android:background="@drawable/team_background">
-
-    <include layout="@layout/top_back_toolbar" />
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".ui.sponsors.SponsorsActivity">
 
     <TextView
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:layout_marginBottom="8dp"
+        android:text="Sponsors"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="@android:color/white"
-        android:text="@string/techknights_msg"
-        />
+        android:textSize="35sp"/>
 
-</RelativeLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+
+        android:id="@+id/view_pager"
+        >
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+
+</LinearLayout>
