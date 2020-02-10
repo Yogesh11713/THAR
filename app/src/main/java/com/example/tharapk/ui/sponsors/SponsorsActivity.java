@@ -37,6 +37,8 @@ public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoad
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         //SET BACK BUTTON
         ImageView btBack = findViewById(R.id.iv_back);
         btBack.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,7 @@ public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoad
         });
 
         sponsors = FirebaseDatabase.getInstance().getReference("Sponsors");
+        sponsors.keepSynced(true);
 
         iFirebaseLoadDone = this;
 

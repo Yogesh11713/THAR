@@ -36,6 +36,9 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+
         //SET BACK BUTTON
         ImageView btBack = findViewById(R.id.iv_back);
         btBack.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +49,7 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
         });
 
         teams = FirebaseDatabase.getInstance().getReference("Teams/Teams");
+        teams.keepSynced(true);
 
         iFirebaseLoadDone = this;
 
