@@ -22,6 +22,10 @@ public class Event {
         this.thumbnail = thumbnail;
     }
 
+    public Event() {
+
+    }
+
     public Event(String title, String description, int thumbnail, String studio, String rating, String streamingLink) {
         this.title = title;
         this.description = description;

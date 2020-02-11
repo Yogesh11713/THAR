@@ -40,8 +40,8 @@ public class EventCategoryAdapter extends RecyclerView.Adapter<EventCategoryAdap
     @Override
     public void onBindViewHolder(@NonNull EventCategoryAdapter.MyViewHolder holder, int position) {
 
-        holder.tvTitle.setText(mCategoryList.get(position).getCategoryName());
-        holder.imgEvent.setImageResource(mCategoryList.get(position).getResourceId());
+            holder.tvTitle.setText(mCategoryList.get(position).getCategoryName());
+            holder.imgEvent.setImageResource(mCategoryList.get(position).getResourceId());
 
     }
 

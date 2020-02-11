@@ -43,7 +43,7 @@ public class EnquiryActivity extends AppCompatActivity implements EnquiryAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enquiry);
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
 
         //SET BACK BUTTON
         ImageView btBack = findViewById(R.id.iv_back);

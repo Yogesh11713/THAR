@@ -1,12 +1,12 @@
 package com.example.tharapk.models;
 
-public class TeamModel {
+public class Team {
     private String name, Title,image;
 
-    public TeamModel() {
+    public Team() {
     }
 
-    public TeamModel(String name, String Title) {
+    public Team(String name, String Title) {
         this.name = name;
         this.Title = Title;
         this.image = image;

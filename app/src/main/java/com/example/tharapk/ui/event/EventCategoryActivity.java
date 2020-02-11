@@ -21,6 +21,11 @@ import com.example.tharapk.ui.notification.NotificationActivity;
 import com.example.tharapk.ui.profile.ProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -43,8 +48,9 @@ public class EventCategoryActivity extends AppCompatActivity implements EventCat
 
     private RecyclerView mEventCategories;
 
-    private FirebaseFirestore mDatabase;
-    private DocumentReference mReference;
+    private DatabaseReference mReference;
+    private FirebaseDatabase mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,32 +59,26 @@ public class EventCategoryActivity extends AppCompatActivity implements EventCat
 
         setActivityNavigation();
 
-        mDatabase = FirebaseFirestore.getInstance();
-        mReference = mDatabase.collection("Events").document("Categories");
-        mReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+        mDatabase = FirebaseDatabase.getInstance();
+        mReference = mDatabase.getReference().child("events");
+        mReference.keepSynced(true);
 
-                Log.d(TAG, "onComplete: TASK Successful" + task.getResult());
+        mReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 setEventCategoryList();
+                for(DataSnapshot eventSnap : dataSnapshot.getChildren()){
 
-                if(task.isSuccessful()){
-
-                    Map categories = task.getResult().getData();
-
-                    Log.d(TAG, "onComplete: "+ categories);
-
-
-                    for (Object d : categories.keySet()){
-
-                        mCategoryList.add(new EventCategory(d.toString(),R.drawable.background));
-
-                    }
-
-                    Log.d(TAG, "onComplete: EVENT CATEGORIES" + mCategoryList);
+                    String categoryName = eventSnap.getKey();
+                    mCategoryList.add(new EventCategory(categoryName.toUpperCase(),R.drawable.background));
 
                 }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                setEventCategoryList();
             }
         });
 

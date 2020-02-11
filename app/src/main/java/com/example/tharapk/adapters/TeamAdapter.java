@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.tharapk.models.TeamModel;
+import com.example.tharapk.models.Team;
 import com.example.tharapk.R;
 import com.squareup.picasso.Picasso;
 
@@ -20,10 +20,10 @@ import java.util.List;
 public class TeamAdapter extends PagerAdapter {
 
     Context context;
-    List<TeamModel> sponsorsList;
+    List<Team> sponsorsList;
     LayoutInflater inflater;
 
-    public TeamAdapter(Context context, List<TeamModel> sponsorsList) {
+    public TeamAdapter(Context context, List<Team> sponsorsList) {
         this.context = context;
         this.sponsorsList = sponsorsList;
         inflater = LayoutInflater.from(context);

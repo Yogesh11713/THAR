@@ -1,6 +1,6 @@
-package com.example.tharapk.ui.sponsors.Listener;
+package com.example.tharapk.listeners;
 
-import com.example.tharapk.ui.sponsors.Model.Sponsor;
+import com.example.tharapk.models.Sponsor;
 
 import java.util.List;
 
