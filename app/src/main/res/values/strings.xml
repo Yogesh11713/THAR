@@ -44,4 +44,8 @@
     <!--    Content Description-->
     <string name="cd_notifications">Live notifications</string>
 
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
+    <string name="title_activity_maps3">Map</string>
+
 </resources>

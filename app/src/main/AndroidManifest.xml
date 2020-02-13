@@ -14,11 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.event.EventListActivity"></activity>
+        <activity android:name=".ui.map.MapActivity"></activity>
+        <activity android:name=".ui.event.EventListActivity" />
         <activity android:name=".ui.explore.ExploreActivity" />
         <activity android:name=".ui.enquiry.EnquiryActivity" />
         <activity android:name=".ui.admin.AdminSignInActivity" />
-        <activity android:name=".ui.map.MapActivity" />
         <activity android:name=".ui.sponsors.SponsorsActivity" />
         <activity android:name=".ui.team.TeamActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
@@ -41,7 +41,10 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+            android:resource="@array/preloaded_fonts"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>
