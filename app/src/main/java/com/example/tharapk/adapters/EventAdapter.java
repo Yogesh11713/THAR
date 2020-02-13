@@ -66,8 +66,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
         public MyViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.item_event_title);
-            imgEvent = itemView.findViewById(R.id.item_event_img);
+//            tvTitle = itemView.findViewById(R.id.item_event_title);
+//            imgEvent = itemView.findViewById(R.id.item_event_img);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

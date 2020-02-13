@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.event.EventDetailActivity"
+    tools:context=".ui.event.EventActivity"
     android:background="@drawable/event_background">
 
     <include layout="@layout/top_back_toolbar" />
-
 
     <LinearLayout
         android:layout_marginTop="80dp"

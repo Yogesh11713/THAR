@@ -14,6 +14,7 @@ import com.example.tharapk.SignExp;
 import com.example.tharapk.ui.enquiry.EnquiryActivity;
 import com.example.tharapk.ui.event.EventCategoryActivity;
 import com.example.tharapk.ui.admin.AdminSignInActivity;
+import com.example.tharapk.ui.explore.ExploreActivity;
 import com.example.tharapk.ui.feed.FeedActivity;
 import com.example.tharapk.ui.map.MapActivity;
 import com.example.tharapk.ui.notification.NotificationActivity;
@@ -95,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         explore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(mContext, MapActivity.class);
+                Intent i1 = new Intent(mContext, ExploreActivity.class);
                 startActivity(i1);
             }
         });

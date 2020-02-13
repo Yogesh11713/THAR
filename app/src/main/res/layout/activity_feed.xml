@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/feed_background"
+    android:background="@drawable/home_background"
     tools:context=".ui.feed.FeedActivity">
 
     <include layout="@layout/top_toolbar" />

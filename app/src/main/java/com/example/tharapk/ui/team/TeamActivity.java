@@ -11,8 +11,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.tharapk.R;
 import com.example.tharapk.adapters.TeamAdapter;
 import com.example.tharapk.listeners.TeamFireBaseLoadDone;
-import com.example.tharapk.models.TeamModel;
-import com.example.tharapk.ui.sponsors.Transformer.DepthPageTransformer;
+import com.example.tharapk.models.Team;
+import com.example.tharapk.transformer.DepthPageTransformer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +46,7 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
         });
 
         teams = FirebaseDatabase.getInstance().getReference("Teams/Teams");
+        teams.keepSynced(true);
 
         iFirebaseLoadDone = this;
 
@@ -60,11 +61,11 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
 
         teams.addListenerForSingleValueEvent(new ValueEventListener() {
 
-            List<TeamModel> teamList = new ArrayList<>();
+            List<Team> teamList = new ArrayList<>();
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot sponsorSnapShot:dataSnapshot.getChildren())
-                    teamList.add(sponsorSnapShot.getValue(TeamModel.class));
+                    teamList.add(sponsorSnapShot.getValue(Team.class));
                 iFirebaseLoadDone.onFirebaseLoadSuccess(teamList);
             }
 
@@ -76,7 +77,7 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
     }
 
     @Override
-    public void onFirebaseLoadSuccess(List<TeamModel> teamList) {
+    public void onFirebaseLoadSuccess(List<Team> teamList) {
         adapter = new TeamAdapter(this, teamList);
         viewPager.setAdapter(adapter);
     }

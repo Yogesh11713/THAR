@@ -43,6 +43,8 @@ public class EnquiryActivity extends AppCompatActivity implements EnquiryAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enquiry);
 
+
+
         //SET BACK BUTTON
         ImageView btBack = findViewById(R.id.iv_back);
         btBack.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +56,7 @@ public class EnquiryActivity extends AppCompatActivity implements EnquiryAdapter
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Enquiry");
+        databaseReference.keepSynced(true);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -80,7 +83,6 @@ public class EnquiryActivity extends AppCompatActivity implements EnquiryAdapter
         });
 
     }
-
 
 
     void setEventCategoryList(){

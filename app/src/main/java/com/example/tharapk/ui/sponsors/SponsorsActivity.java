@@ -10,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.tharapk.R;
-import com.example.tharapk.ui.sponsors.Adapter.MyAdapter;
-import com.example.tharapk.ui.sponsors.Listener.IFirebaseLoadDone;
-import com.example.tharapk.ui.sponsors.Model.Sponsor;
-import com.example.tharapk.ui.sponsors.Transformer.DepthPageTransformer;
+import com.example.tharapk.adapters.SponsorsAdapter;
+import com.example.tharapk.listeners.IFirebaseLoadDone;
+import com.example.tharapk.models.Sponsor;
+import com.example.tharapk.transformer.DepthPageTransformer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +26,7 @@ import java.util.List;
 public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoadDone {
 
     ViewPager viewPager;
-    MyAdapter adapter;
+    SponsorsAdapter adapter;
 
     DatabaseReference sponsors;
 
@@ -47,6 +47,7 @@ public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoad
         });
 
         sponsors = FirebaseDatabase.getInstance().getReference("Sponsors");
+        sponsors.keepSynced(true);
 
         iFirebaseLoadDone = this;
 
@@ -77,7 +78,7 @@ public class SponsorsActivity extends AppCompatActivity implements IFirebaseLoad
 
     @Override
     public void onFirebaseLoadSuccess(List<Sponsor> sponsorList) {
-        adapter = new MyAdapter(this, sponsorList);
+        adapter = new SponsorsAdapter(this, sponsorList);
         viewPager.setAdapter(adapter);
     }
 
