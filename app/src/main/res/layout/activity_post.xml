@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/feed_background">
+
+    <include layout="@layout/top_back_toolbar"/>
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:gravity="left"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="New Post"/>
+
+    <ScrollView
+        android:layout_below="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_marginBottom="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--Notice Description-->
+                <RelativeLayout
+                    android:id="@+id/relLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Description" />
+
+                        <EditText
+                            android:backgroundTint="@android:color/white"
+                            android:id="@+id/post_description"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/montserrat"
+                            android:layout_below="@+id/post_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="start"
+                            android:textColorHint="@android:color/white"
+                            android:hint="Share your Event Happenings..."/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <!--Notice Attachments-->
+                <RelativeLayout
+                    android:id="@+id/relLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayout2"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/option"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Attachments" />
+
+                        <TextView
+                            android:id="@+id/post_image_gallery"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="2"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CLICK HERE"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:id="@+id/post_image"
+                        android:layout_below="@+id/option"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/postBtn"
+                android:backgroundTint="@android:color/black"
+                android:text="Post"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

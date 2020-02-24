@@ -9,7 +9,7 @@
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000"
+        android:background="#0FFFFFFF"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="30dp"
@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:text="@string/team"
                 android:fontFamily="@font/montserrat"
-                android:id="@+id/team_title"
+                android:id="@+id/sponsor_description"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
                 />

@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i1 = new Intent(mContext, ExploreActivity.class);
+                i1.putExtra("url","http://www.rtuthar.in/");
                 startActivity(i1);
             }
         });

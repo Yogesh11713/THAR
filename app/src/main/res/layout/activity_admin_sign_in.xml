@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.AdminSignInActivity">
+    android:background="@drawable/feed_background"
+    android:theme="@style/AppTheme"
+    tools:context=".NoConnection">
+
+    <include layout="@layout/top_back_toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/caution" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="Only for Organizers / Coordinators"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="ID is case sensitive"
+            android:textSize="14dp" />
 
 
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/msg"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/et_team_id"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:hint="Team ID" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:id="@+id/bt_getaccess"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@android:color/black"
+            android:text="Get Access"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginBottom="8dp"
+        android:textColor="@android:color/white"
+        android:text="@string/techknights_msg"
+        />
+
+
+</RelativeLayout>

@@ -8,10 +8,10 @@ public class Event {
     private String studio;
     private String rating;
     private String streamingLink;
-    private int coverPhoto;
+    private String coverPhoto;
 
 
-    public Event(String title, int thumbnail, int coverPhoto) {
+    public Event(String title, int thumbnail, String coverPhoto) {
         this.title = title;
         this.thumbnail = thumbnail;
         this.coverPhoto = coverPhoto;
@@ -36,11 +36,11 @@ public class Event {
     }
 
 
-    public int getCoverPhoto() {
+    public String getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(int coverPhoto) {
+    public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 

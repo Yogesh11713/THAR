@@ -50,11 +50,13 @@ public class SponsorsAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = inflater.inflate(R.layout.view_pager_item,container, false);
 
-        ImageView sponsor_image = (ImageView)view.findViewById(R.id.sponsor_image);
-        TextView sponsor_title = (TextView)view.findViewById(R.id.sponsor_title);
+        ImageView sponsor_image = view.findViewById(R.id.sponsor_image);
+        TextView sponsor_title = view.findViewById(R.id.sponsor_title);
+        TextView sponsor_description = view.findViewById(R.id.sponsor_description);
 
         Picasso.get().load(sponsorsList.get(position).getImage()).into(sponsor_image);
         sponsor_title.setText(sponsorsList.get(position).getName());
+        sponsor_description.setText(sponsorsList.get(position).getDescription());
 
         container.addView(view);
         return view;

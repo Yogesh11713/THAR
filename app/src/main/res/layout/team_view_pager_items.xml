@@ -8,7 +8,7 @@
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000"
+        android:background="#0FFFFFFF"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="30dp"
@@ -16,8 +16,8 @@
 
 
         <LinearLayout
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:id="@+id/sponsor_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:layout_marginTop="10dp"

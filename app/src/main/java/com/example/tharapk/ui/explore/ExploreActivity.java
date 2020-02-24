@@ -31,7 +31,7 @@ public class ExploreActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         webView.setWebViewClient(new MyBrowser());
 
-        String url = "http://www.rtuthar.in/";
+        String url = getIntent().getStringExtra("url");
 
         webView.getSettings().setLoadsImagesAutomatically(true);
         webView.getSettings().setJavaScriptEnabled(true);

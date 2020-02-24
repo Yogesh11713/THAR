@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_background"
+    android:background="@drawable/feed_background"
     style="@style/AppTheme"
     tools:context=".ui.home.HomeActivity">
 
@@ -304,7 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/in" />
 
                     <ImageView
                         android:clickable="true"
@@ -313,7 +313,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/git" />
                     <ImageView
                         android:clickable="true"
                         android:foreground="@drawable/button_ripple_effect"
@@ -321,7 +321,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/insta" />
 
                     <ImageView
                         android:clickable="true"

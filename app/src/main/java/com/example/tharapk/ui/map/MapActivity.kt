@@ -1,6 +1,9 @@
 package com.example.tharapk.ui.map
 
+import android.Manifest
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Build
@@ -22,6 +25,7 @@ import android.graphics.Canvas
 import com.google.android.gms.maps.model.BitmapDescriptor
 
 import androidx.core.content.ContextCompat
+import com.blikoon.qrcodescanner.QrCodeActivity
 
 import com.example.tharapk.R
 import com.google.maps.android.ui.IconGenerator
@@ -30,6 +34,7 @@ import com.google.maps.android.ui.IconGenerator
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+
 
     private val cameraPosition: CameraPosition = CameraPosition.Builder()    //initial camera position
         .target(LatLng(25.142090,75.807688))
@@ -70,10 +75,69 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
+        setMapPermission()
         mapFragment.getMapAsync(this)
 
 
     }
+
+    fun setMapPermission() {
+
+        //todo: Location PERMISSIONS
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this as Activity,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            ) {
+
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(
+                    this as Activity,
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    MY_PERMISSION_FINE_LOCATION
+                )
+
+            }
+        }
+
+
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>, grantResults: IntArray
+    ) {
+        when (requestCode) {
+            MY_PERMISSION_FINE_LOCATION -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(
+                        this,
+                        "Permission Denied, MAP Will not work",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                return
+            }
+        }
+    }
+
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -183,21 +247,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         val gym  = LatLng(25.139913,75.808180)
         mMap.addMarker(MarkerOptions().position(gym).title("Gymnasium")
             .icon(BitmapDescriptorFactory.fromBitmap(icongen.makeIcon("gym"))))
-//
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Tpnt, 16f))
-
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
 
-// showing current location
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mMap.isMyLocationEnabled = true
-        }
-        else {//condition for Marshmello and above
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSION_FINE_LOCATION)
-            }
-        }
 
         setMapStyle(mMap)
     }
@@ -219,25 +271,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
             draw(Canvas(bitmap))
             BitmapDescriptorFactory.fromBitmap(bitmap)
-        }
-    }
-
-
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            MY_PERMISSION_FINE_LOCATION -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {//permission to access location grant
-                if (ActivityCompat.checkSelfPermission(this,
-                        android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    mMap.isMyLocationEnabled = true
-                }
-            }
-            //permission to access location denied
-            else {
-                Toast.makeText(applicationContext, "This app requires location permissions to be granted", Toast.LENGTH_LONG).show()
-                finish()
-            }
         }
     }
 

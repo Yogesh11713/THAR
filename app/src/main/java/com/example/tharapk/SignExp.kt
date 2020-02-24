@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.tharapk.ui.home.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -16,7 +18,9 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_sign_exp.*
+import kotlinx.android.synthetic.main.layout_thar_id_dialog.view.*
 
 
 //COMPLETELY SIGN IN PAGE
@@ -102,9 +106,39 @@ class SignExp : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
 
-                val intent= Intent(this@SignExp, HomeActivity::class.java)
-                startActivity(intent)
-                finish()
+                //Inflate the dialog with custom view
+                val mDialogView = LayoutInflater.from(this).inflate(R.layout.layout_thar_id_dialog, null)
+                //AlertDialogBuilder
+                val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogView)
+                    .setCancelable(false)
+                //show dialog
+                val  mAlertDialog = mBuilder.show()
+                //login button click of custom layout
+                mDialogView.dialogSubmitBtn.setOnClickListener {
+                    //dismiss dialog
+                    mAlertDialog.dismiss()
+                    //get text from EditTexts of custom layout
+                    val thar = mDialogView.dialogTharIdEt.text.toString()
+
+                    if(thar != ""){
+                        val database = FirebaseAuth.getInstance().currentUser?.uid?.let { it1 ->
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                .child(it1)
+                        }
+
+                        database?.child("thar_id")?.setValue(thar)
+
+                        val intent= Intent(this@SignExp, HomeActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        mDialogView.dialogTharIdEt.error = "Please enter the thar id"
+                    }
+
+                }
+
+
                 // MAKE LOADING GONE
                 mLoading.visibility = View.GONE
 

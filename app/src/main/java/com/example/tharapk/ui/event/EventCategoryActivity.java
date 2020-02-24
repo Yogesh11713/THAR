@@ -71,7 +71,50 @@ public class EventCategoryActivity extends AppCompatActivity implements EventCat
                 for(DataSnapshot eventSnap : dataSnapshot.getChildren()){
 
                     String categoryName = eventSnap.getKey();
-                    mCategoryList.add(new EventCategory(categoryName.toUpperCase(),R.drawable.background));
+                    int bannerId;
+
+                    if(categoryName.equals("aeromodelling")){
+
+                        bannerId = R.drawable.aeromodelling;
+
+                    }else if(categoryName.equals("automobile")){
+
+                        bannerId = R.drawable.automobile;
+
+                    }else if(categoryName.equals("business")){
+
+                        bannerId = R.drawable.business;
+
+                    }else if(categoryName.equals("community")){
+
+                        bannerId = R.drawable.wordsworth;
+
+                    }else if(categoryName.equals("construction")){
+
+                        bannerId = R.drawable.construction;
+
+                    }else if(categoryName.equals("marketing")){
+
+                        bannerId = R.drawable.marketing;
+
+                    }else if(categoryName.equals("programming")){
+
+                        bannerId = R.drawable.programming;
+
+                    }else if(categoryName.equals("robotics")){
+
+                        bannerId = R.drawable.robotics;
+
+                    }else if(categoryName.equals("wordsworth")){
+
+                        bannerId = R.drawable.wordsworth;
+
+                    }else{
+
+                        bannerId = R.drawable.aeromodelling;
+                    }
+
+                    mCategoryList.add(new EventCategory(categoryName.toUpperCase(),bannerId));
 
                 }
 
@@ -89,27 +132,6 @@ public class EventCategoryActivity extends AppCompatActivity implements EventCat
        mEventCategories = findViewById(R.id.Rv_events);
 
        mCategoryList = new ArrayList<>();
-
-//       //   ADDING CATEGORIES TO THE RECYCLER VIEW LIST
-//       mCategoryList.add(
-//               new EventCategory(
-//                       "Robotics",
-//                       R.drawable.background
-//               )
-//       );
-//
-//       mCategoryList.add(
-//               new EventCategory(
-//                       "Robotics",
-//                       R.drawable.background
-//               )
-//       );
-//       mCategoryList.add(
-//               new EventCategory(
-//                       "Robotics",
-//                       R.drawable.background
-//               )
-//       );
 
        //   SETTING ADAPTER FOR THE RECYCLER VIEW
        EventCategoryAdapter adapter = new EventCategoryAdapter(mContext,mCategoryList,this);
