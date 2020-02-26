@@ -1,6 +1,9 @@
 package com.example.tharapk.ui.team;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadDone {
+
+    private static final String TAG = "TeamActivity";
 
     ViewPager viewPager;
     TeamAdapter adapter;
@@ -66,6 +71,8 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot sponsorSnapShot:dataSnapshot.getChildren())
                     teamList.add(sponsorSnapShot.getValue(Team.class));
+                Log.d(TAG, "onDataChange: " + teamList.get(2).getLinkedin());
+
                 iFirebaseLoadDone.onFirebaseLoadSuccess(teamList);
             }
 
@@ -78,12 +85,24 @@ public class TeamActivity extends AppCompatActivity implements TeamFireBaseLoadD
 
     @Override
     public void onFirebaseLoadSuccess(List<Team> teamList) {
-        adapter = new TeamAdapter(this, teamList);
+        adapter = new TeamAdapter(this, teamList,iFirebaseLoadDone);
         viewPager.setAdapter(adapter);
     }
 
     @Override
     public void onFirebaseLoadFailed(String message) {
         Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onIconClick(String url) {
+        Log.d(TAG, "onIconClick: URL" + url);
+        if(!url.equals("")){
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
+
     }
 }

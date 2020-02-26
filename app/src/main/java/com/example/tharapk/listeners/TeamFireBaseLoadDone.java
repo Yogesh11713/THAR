@@ -8,4 +8,6 @@ public interface TeamFireBaseLoadDone {
 
     void onFirebaseLoadSuccess(List<Team> sponsorsList);
     void onFirebaseLoadFailed(String message);
+
+    void onIconClick(String url);
 }

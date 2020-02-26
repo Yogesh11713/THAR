@@ -45,7 +45,7 @@
                 android:scaleType="centerCrop"
                 android:transitionName="sharedName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/login_background"
+
                 />
 
 

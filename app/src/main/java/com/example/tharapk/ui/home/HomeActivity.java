@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -190,6 +191,32 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
+   public void setSocialIcon(View v){
+
+        String url ;
+
+        switch(v.getId()){
+            case R.id.website:
+                url = "https://wwww.rtuthar.in/";break;
+            case R.id.fb:
+                url = "https://www.facebook.com/rtuthar/";break;
+            case R.id.insta:
+                url = "https://www.instagram.com/thar.rtu/";break;
+            case R.id.linkedin:
+                url = "https://www.linkedin.com/company/thar-rtu-kota/";break;
+            default:
+                url = "https://wwww.rtuthar.in";break;
+        }
+
+
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+
+    }
+
 
 
 }
