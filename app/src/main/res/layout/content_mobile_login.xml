@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@android:color/black"
+        android:text="Enter your 10-digit mobile number, we'll try to verify you through OTP."
+        android:fontFamily="@font/montserrat"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPhoneNumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Enter your Mobile number"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/colorPrimary"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvAuthenticate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="16dp"
+        android:text="Authenticate"
+        android:textColor="@color/qr_code_white"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginBottom="8dp"
+        android:text="@string/techknights_msg"
+        />
+
+</LinearLayout>

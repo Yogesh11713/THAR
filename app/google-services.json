@@ -8,25 +8,54 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:288267107887:android:73364becc4394616ecd0da",
+        "mobilesdk_app_id": "1:288267107887:android:de39fc40000e83d5ecd0da",
         "android_client_info": {
-          "package_name": "com.example.tharapk"
+          "package_name": "com.techknights.thar20"
         }
       },
       "oauth_client": [
         {
-          "client_id": "288267107887-76n95atolm6g71f1fobkt0gfb94csv11.apps.googleusercontent.com",
+          "client_id": "288267107887-576pdoa0hmnuflu5ll623hqdhrii6mi7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tharapk",
-            "certificate_hash": "0b8b5da62d275471bc97c6c6142bf7d4153cb09f"
+            "package_name": "com.techknights.thar20",
+            "certificate_hash": "3ff779728ab9235450c72bb582dd8adcd46128bd"
           }
         },
         {
-          "client_id": "288267107887-7c8jgmon2jmue8dg60o24nqfn6cduivu.apps.googleusercontent.com",
+          "client_id": "288267107887-lvdnalnlrqvjj8h0hbo00um94euaggvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfq5zhFJorQNTsoU8fPUsURDXultlWl68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288267107887-lvdnalnlrqvjj8h0hbo00um94euaggvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288267107887:android:f651c4a6fbcf7d17ecd0da",
+        "android_client_info": {
+          "package_name": "com.techknightsrtu.thar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288267107887-c0ov2so6kjaqigbjdges1arf1vsdqd8c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tharapk",
+            "package_name": "com.techknightsrtu.thar",
             "certificate_hash": "3ff779728ab9235450c72bb582dd8adcd46128bd"
           }
         },

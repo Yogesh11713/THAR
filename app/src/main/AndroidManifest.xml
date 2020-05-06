@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tharapk">
+    package="com.techknightsrtu.thar">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
 
     <application
         android:name=".MyApplication"
@@ -20,11 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".VerifyMobileActivity"></activity>
+        <activity android:name=".SignInActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".ui.admin.PostActivity"></activity>
-        <activity android:name=".ui.admin.AdminDashboardActivity"></activity>
+
+        <activity android:name=".ui.admin.PostActivity" />
+        <activity android:name=".ui.admin.AdminDashboardActivity" />
         <activity android:name=".ui.event.EventListActivity" />
         <activity android:name=".ui.explore.ExploreActivity" />
         <activity android:name=".ui.enquiry.EnquiryActivity" />
