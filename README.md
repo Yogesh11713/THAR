@@ -8,7 +8,7 @@
 ![THAR APP](/Thar%20Screenshot/5.png)
 
 
-##Contributed By
+## Contributed By
 1. Laxman Das
 2. Shruti Bansal
 3. Vashishta Gautam
